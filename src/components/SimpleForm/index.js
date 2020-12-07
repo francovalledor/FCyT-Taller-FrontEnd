@@ -63,22 +63,25 @@ export function SimpleForm(props) {
   function renderFields(fields) {
     let index = 1;
     return props.fields.map((field) => {
-      let classes = "form-control";
+      let classes = field.classes || "";
+      classes += " form-control";
       if (field.isValid === true) {
         classes += " is-valid";
       } else if (field.isValid === false) {
         classes += " is-invalid";
       }
 
+      field.classes = classes;
+
       switch (field.type.toLowerCase()) {
         case "submit":
-          return renderTypeSubmit(field, classes, index);
+          return renderTypeSubmit(field, index);
 
         case "select":
-          return renderTypeSelect(field, classes, index);
+          return renderTypeSelect(field, index);
 
         default:
-          return renderTypeGeneral(field, classes, index);
+          return renderTypeGeneral(field, index);
       }
     });
   }

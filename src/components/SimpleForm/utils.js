@@ -1,38 +1,35 @@
 import React from "react";
 
+export function commonAttributes(field, index) {
+  let attributes = {
+    name: field.name,
+    placeholder: field.placeholder,
+    autoFocus: index === 1,
+    tabIndex: index,
+    required: field.required || false,
+    className: field.classes
+  };
+  index++;
+  return attributes;
+}
+
 export function renderTypeSubmit(field, classes, index) {
+  let attributes = commonAttributes(field, index);
   return (
     <div key={field.name} className="form-group">
       {renderLabel(field)}
-      <input
-        type={field.type}
-        name={field.name}
-        className={classes}
-        placeholder={field.placeholder}
-        autoFocus={index === 1}
-        tabIndex={index++}
-        value={field.value}
-        required={field.required || false}
-      />
+      <input type={field.type} value={field.value} {...attributes} />
       {renderNote(field)}
     </div>
   );
 }
 
 export function renderTypeGeneral(field, classes, index) {
+  let attributes = commonAttributes(field, index);
   return (
     <div key={field.name} className="form-group">
       {renderLabel(field)}
-      <input
-        type={field.type}
-        name={field.name}
-        className={classes}
-        placeholder={field.placeholder}
-        autoFocus={index === 1}
-        tabIndex={index++}
-        defaultValue={field.value}
-        required={field.required || false}
-      />
+      <input type={field.type} defaultValue={field.value} {...attributes} />
       {renderNote(field)}
       {renderValidMessage(field)}
       {renderInvalidMessage(field)}
@@ -41,6 +38,7 @@ export function renderTypeGeneral(field, classes, index) {
 }
 
 export function renderTypeSelect(field, classes, index) {
+  let attributes = commonAttributes(field, index);
   function renderOptions(field) {
     if (field.options && field.options.map) {
       return field.options.map((option) => (
@@ -55,14 +53,7 @@ export function renderTypeSelect(field, classes, index) {
     <>
       <div key={field.name} className="form-group">
         {renderLabel(field)}
-        <select
-          name={field.name}
-          className={classes}
-          autoFocus={index === 1}
-          tabIndex={index++}
-          defaultValue={field.value}
-          required={field.required || false}
-        >
+        <select {...attributes} defaultValue={field.value}>
           {renderOptions(field)}
         </select>
         {renderNote(field)}
