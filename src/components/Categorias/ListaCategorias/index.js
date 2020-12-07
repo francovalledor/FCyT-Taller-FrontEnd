@@ -48,7 +48,7 @@ export function ListaCategorias(props) {
             </tr>
           </thead>
         </table>
-        <p>No hay elementos</p>;
+        <p>No hay elementos</p>
       </>
     );
   }
