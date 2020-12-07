@@ -9,6 +9,7 @@ export function EditarCategoria(props) {
     type: "text",
     placeholder: "Nombre",
     required: true,
+    classes: "text-capitalize",
     value: props.categoria.nombre
   });
 

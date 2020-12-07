@@ -22,7 +22,7 @@ export function ListaCategorias(props) {
   if (renderCategorias()) {
     return (
       <>
-        <h1>Categorias</h1>
+        <h3>Categorias</h3>
         <table className="table table-hover table-striped">
           <thead>
             <tr>

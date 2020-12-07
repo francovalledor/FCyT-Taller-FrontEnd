@@ -19,10 +19,13 @@ export function AgregarCategoria(props) {
   });
 
   async function handleAgregar(e) {
-    let fd = new FormData(e.target);
+    let form = e.target;
+    let fd = new FormData(form);
     let nombre = fd.get("nombre");
     await Categoria.add(nombre);
     props.refresh();
+    form.reset();
+    form.focus();
   }
 
   return <SimpleForm title="Nueva" onSubmit={handleAgregar} fields={fields} />;

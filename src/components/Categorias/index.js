@@ -19,23 +19,30 @@ export function PanelCategorias(props) {
   }, []);
 
   return (
-    <div>
-      <ListaCategorias
-        refresh={getAllCategorias}
-        editMode={setIsEditing}
-        setCategoria={setCategoriaToEdit}
-        categorias={categorias}
-      />
+    <div className="container">
+      <h1>Categorias</h1>
       <hr />
-      {isEditing ? (
-        <EditarCategoria
-          editMode={setIsEditing}
-          refresh={getAllCategorias}
-          categoria={categoriaToEdit}
-        />
-      ) : (
-        <AgregarCategoria refresh={getAllCategorias} />
-      )}
+      <div className="row">
+        <div className="col-md-6 mx-auto bg-light">
+          <ListaCategorias
+            refresh={getAllCategorias}
+            editMode={setIsEditing}
+            setCategoria={setCategoriaToEdit}
+            categorias={categorias}
+          />
+        </div>
+        <div className="col-md-6 mx-auto bg-light">
+          {isEditing ? (
+            <EditarCategoria
+              editMode={setIsEditing}
+              refresh={getAllCategorias}
+              categoria={categoriaToEdit}
+            />
+          ) : (
+            <AgregarCategoria refresh={getAllCategorias} />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

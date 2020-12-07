@@ -5,6 +5,6 @@ import { Categoria } from "./categorias";
 import { Tipo } from "./tipos";
 import { Unidad } from "./unidades";
 
-export const BASE = "http://localhost:5000";
+export const BASE = "https://taller-fcyt.herokuapp.com";
 
 export { Producto, Categoria, Tipo, Unidad };
