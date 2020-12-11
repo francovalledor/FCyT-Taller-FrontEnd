@@ -2,6 +2,10 @@ import React from "react";
 import { Categoria } from "./Categoria";
 
 export function ListaCategorias(props) {
+  if (props.categorias === undefined) {
+    return "cargando...";
+  }
+
   function renderCategorias() {
     if (
       props.categorias &&
@@ -17,6 +21,7 @@ export function ListaCategorias(props) {
           categoria={categoria}
         />
       ));
+    } else {
     }
   }
   if (renderCategorias()) {

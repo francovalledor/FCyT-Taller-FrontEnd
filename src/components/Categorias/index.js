@@ -5,7 +5,7 @@ import { AgregarCategoria } from "./FormCategoria";
 import { ListaCategorias } from "./ListaCategorias";
 
 export function PanelCategorias(props) {
-  const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategorias] = useState(undefined);
   const [isEditing, setIsEditing] = useState(false);
   const [categoriaToEdit, setCategoriaToEdit] = useState(undefined);
 
